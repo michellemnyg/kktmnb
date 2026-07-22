@@ -7,14 +7,18 @@
         "dev": "vite"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.5.11",
         "@tailwindcss/vite": "^4.3.3",
+        "autoprefixer": "^10.5.4",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^3.1",
+        "postcss": "^8.5.20",
         "tailwindcss": "^4.3.3",
         "vite": "^8.0.0"
     },
     "dependencies": {
         "alpinejs": "^3.15.12",
+        "animejs": "^4.5.0",
         "aos": "^2.3.4",
         "chart.js": "^4.5.1",
         "lucide": "^1.25.0",
