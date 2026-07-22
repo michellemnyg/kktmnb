@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Superadmin - Kelurahan Manembo-Nembo</title>
+    <title>Login Panel Admin - Kelurahan Manembo-Nembo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         </div>
 
         <!-- Form Login (Statis) -->
-        <form action="#" method="POST" class="space-y-6">
+        <form action="/admin/dashboard" method="GET" class="space-y-6">
             @csrf
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">NIP (Nomor Induk Pegawai)</label>
