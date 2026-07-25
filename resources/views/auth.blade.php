@@ -22,8 +22,15 @@
         </div>
 
         <!-- Form Login (Statis) -->
-        <form action="/admin/dashboard" method="GET" class="space-y-6">
+        <form action="{{ url('/login') }}" method="POST" class="space-y-6">
             @csrf
+
+            @error('nip')
+                <div class="p-3 rounded-xl bg-rose-50 text-rose-600 text-sm font-semibold border border-rose-200">
+                    {{ $message }}
+                </div>
+            @enderror
+
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-2">NIP (Nomor Induk Pegawai)</label>
                 <div class="relative">

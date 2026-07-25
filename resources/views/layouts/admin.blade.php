@@ -53,13 +53,14 @@
             </nav>
 
             <!-- Sidebar Footer (Logout) -->
-            <div class="w-full border-t border-slate-100 p-4 bg-white shrink-0">
-                <a href="/" class="flex w-full items-center gap-3 text-sm font-bold text-red-500 hover:text-red-600 hover:bg-red-50 rounded-xl px-4 py-2.5 transition-colors">
+            <form action="{{ route('logout') }}" method="POST" class="w-full border-t border-slate-100 p-4 bg-white shrink-0">
+                @csrf
+                <button type="submit" class="flex w-full items-center gap-3 text-sm font-bold text-red-500 hover:text-red-600 hover:bg-red-50 rounded-xl px-4 py-2.5 transition-colors">
                     <!-- Icon LogOut -->
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
                     Keluar
-                </a>
-            </div>
+                </button>
+            </form>
         </aside>
 
         <!-- ================= MAIN CONTENT ================= -->
@@ -80,15 +81,14 @@
                 <!-- Profil Info -->
                 <div class="flex items-center gap-3 text-right">
                     <div class="hidden sm:block">
-                        <!-- (Nanti diganti dengan Auth::user()->name) -->
-                        <div class="text-sm font-bold text-slate-800">Johnny Kondo, S.A.P.</div> 
+                        <div class="text-sm font-bold text-slate-800">{{ auth()->user()->name ?? 'Administrator' }}</div> 
                         <div class="text-[10px] font-extrabold uppercase tracking-widest mt-0.5 text-primary-600">
-                            Superadmin
+                            {{ auth()->user()->role ?? 'Superadmin' }}
                         </div>
                     </div>
                     <!-- Avatar Lingkaran -->
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 shadow-md flex items-center justify-center text-white font-bold text-sm border-2 border-white ring-2 ring-slate-100">
-                        JK
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 shadow-md flex items-center justify-center text-white font-bold text-sm border-2 border-white ring-2 ring-slate-100 uppercase">
+                        {{ substr(auth()->user()->name ?? 'A', 0, 2) }}
                     </div>
                 </div>
             </header>

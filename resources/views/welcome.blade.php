@@ -184,7 +184,10 @@
                 <div class="w-full md:w-auto">
                     <div class="inline-flex items-center gap-2 bg-primary-50 border border-primary-100 px-5 py-2.5 rounded-xl text-primary-700 shadow-sm">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <span class="font-medium text-sm">Data per <strong id="dynamic-period">Bulan Tahun</strong></span>
+                        @php
+                            $bulanStr = ['01'=>'Januari', '02'=>'Februari', '03'=>'Maret', '04'=>'April', '05'=>'Mei', '06'=>'Juni', '07'=>'Juli', '08'=>'Agustus', '09'=>'September', '10'=>'Oktober', '11'=>'November', '12'=>'Desember'];
+                        @endphp
+                        <span class="font-medium text-sm">Data per <strong>{{ $bulanStr[$displayBulan ?? date('m')] }} {{ $displayTahun ?? date('Y') }}</strong></span>
                     </div>
                 </div>
             </div>
@@ -197,7 +200,7 @@
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">5.234</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{{ $data ? number_format(($data->wni_l ?? 0) + ($data->wni_p ?? 0), 0, ',', '.') : '0' }}</h3>
                     <p class="text-slate-600 font-medium">Jumlah Penduduk</p>
                 </div>
 
@@ -206,7 +209,7 @@
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">2.650</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{{ $data ? number_format($data->wni_l ?? 0, 0, ',', '.') : '0' }}</h3>
                     <p class="text-slate-600 font-medium">Laki-laki</p>
                 </div>
 
@@ -215,7 +218,7 @@
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4a4 4 0 100 8 4 4 0 000-8zM2 20h20M12 12v8"></path></svg>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">2.584</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{{ $data ? number_format($data->wni_p ?? 0, 0, ',', '.') : '0' }}</h3>
                     <p class="text-slate-600 font-medium">Perempuan</p>
                 </div>
 
@@ -224,7 +227,7 @@
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">1.379</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{{ $data ? number_format($data->kk_ada ?? 0, 0, ',', '.') : '0' }}</h3>
                     <p class="text-slate-600 font-medium">Kartu Keluarga</p>
                 </div>
 
@@ -233,7 +236,7 @@
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">14</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{{ $data ? number_format(($data->wna_l ?? 0) + ($data->wna_p ?? 0), 0, ',', '.') : '0' }}</h3>
                     <p class="text-slate-600 font-medium">WNA</p>
                 </div>
 
@@ -436,13 +439,7 @@
             });
             window.dispatchEvent(new Event('scroll'));
 
-            // --- Dinamis Tanggal Demografi ---
-            const periodEl = document.getElementById('dynamic-period');
-            if (periodEl) {
-                const date = new Date();
-                const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-                periodEl.textContent = `${months[date.getMonth()]} ${date.getFullYear()}`;
-            }
+
 
             // --- Mobile Menu Toggle ---
             const mobileBtn = document.getElementById('mobile-menu-btn');

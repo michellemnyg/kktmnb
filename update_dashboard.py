@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+blade_content = r"""@extends('layouts.admin')
 
 @section('title', 'Dashboard Overview')
 
@@ -417,4 +417,7 @@
         }
     });
 </script>
-@endpush
+@endpush"""
+
+with open(r'd:\Coding Project\KKTmnb\resources\views\admin\dashboard.blade.php', 'w', encoding='utf-8') as f:
+    f.write(blade_content)
