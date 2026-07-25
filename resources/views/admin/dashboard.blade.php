@@ -85,21 +85,22 @@
         <div>
             <h2 class="text-2xl font-extrabold text-slate-800">Analisis Kependudukan Terpadu</h2>
             @if(!$data)
-                <p class="text-rose-500 text-sm mt-1 font-semibold">Data untuk periode ini belum tersedia (Empty State).</p>
+                <p class="text-rose-500 text-sm mt-1 font-semibold">Data untuk periode ini belum tersedia.</p>
             @endif
         </div>
         
         <div class="flex items-center gap-2">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider hidden sm:inline-block">Periode:</span>
-            <select class="bg-white border border-slate-200 text-primary-700 font-semibold py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm cursor-pointer text-sm" id="dashboard-month">
+            <select class="min-w-[130px] bg-white border border-slate-200 text-slate-700 font-semibold py-2 pl-3 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm cursor-pointer text-sm appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23475569%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:1.2em_1.2em] bg-[position:right_0.5rem_center] bg-no-repeat" id="dashboard-month">
                 @foreach(['01'=>'Januari', '02'=>'Februari', '03'=>'Maret', '04'=>'April', '05'=>'Mei', '06'=>'Juni', '07'=>'Juli', '08'=>'Agustus', '09'=>'September', '10'=>'Oktober', '11'=>'November', '12'=>'Desember'] as $m => $mName)
                     <option value="{{ $m }}" {{ ($bulan ?? date('m')) == $m ? 'selected' : '' }}>{{ $mName }}</option>
                 @endforeach
             </select>
-            <select class="bg-white border border-slate-200 text-primary-700 font-semibold py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm cursor-pointer text-sm" id="dashboard-year">
-                @foreach(['2025', '2026'] as $y)
-                    <option value="{{ $y }}" {{ ($tahun ?? date('Y')) == $y ? 'selected' : '' }}>{{ $y }}</option>
-                @endforeach
+            <select class="min-w-[90px] bg-white border border-slate-200 text-slate-700 font-semibold py-2 pl-3 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm cursor-pointer text-sm appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23475569%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:1.2em_1.2em] bg-[position:right_0.5rem_center] bg-no-repeat" id="dashboard-year">
+                @php $currentYear = date('Y'); @endphp
+                @for($y = $currentYear; $y >= 2020; $y--)
+                    <option value="{{ $y }}" {{ ($tahun ?? $currentYear) == $y ? 'selected' : '' }}>{{ $y }}</option>
+                @endfor
             </select>
         </div>
     </div>

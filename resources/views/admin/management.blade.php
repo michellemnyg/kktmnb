@@ -18,17 +18,22 @@
         <form action="{{ url('/admin/management') }}" method="GET" class="flex flex-col sm:flex-row gap-4 items-end">
             <div class="w-full sm:w-auto">
                 <label class="block text-xs font-semibold text-slate-500 mb-1">Bulan</label>
-                <select name="bulan" id="manage-month" class="w-full bg-slate-50 border border-slate-300 text-slate-700 font-semibold py-2.5 px-4 rounded-xl focus:ring-2 focus:ring-primary-500 focus:outline-none">
-                    <option value="08" {{ isset($bulan) && $bulan == '08' ? 'selected' : '' }}>Agustus</option>
-                    <option value="07" {{ isset($bulan) && $bulan == '07' ? 'selected' : '' }}>Juli</option>
-                    <option value="06" {{ isset($bulan) && $bulan == '06' ? 'selected' : '' }}>Juni</option>
+                @php
+                    $monthsList = ['01'=>'Januari','02'=>'Februari','03'=>'Maret','04'=>'April','05'=>'Mei','06'=>'Juni','07'=>'Juli','08'=>'Agustus','09'=>'September','10'=>'Oktober','11'=>'November','12'=>'Desember'];
+                    $currentYear = date('Y');
+                @endphp
+                <select name="bulan" id="manage-month" class="w-full sm:min-w-[180px] bg-slate-50 border border-slate-300 text-slate-700 font-semibold py-2.5 pl-4 pr-10 rounded-xl focus:ring-2 focus:ring-primary-500 focus:outline-none cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23475569%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:1.2em_1.2em] bg-[position:right_0.8rem_center] bg-no-repeat shadow-sm">
+                    @foreach($monthsList as $num => $name)
+                        <option value="{{ $num }}" {{ (isset($bulan) ? $bulan : date('m')) == $num ? 'selected' : '' }}>{{ $name }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="w-full sm:w-auto">
                 <label class="block text-xs font-semibold text-slate-500 mb-1">Tahun</label>
-                <select name="tahun" id="manage-year" class="w-full bg-slate-50 border border-slate-300 text-slate-700 font-semibold py-2.5 px-4 rounded-xl focus:ring-2 focus:ring-primary-500 focus:outline-none">
-                    <option value="2026" {{ isset($tahun) && $tahun == '2026' ? 'selected' : '' }}>2026</option>
-                    <option value="2025" {{ isset($tahun) && $tahun == '2025' ? 'selected' : '' }}>2025</option>
+                <select name="tahun" id="manage-year" class="w-full sm:min-w-[140px] bg-slate-50 border border-slate-300 text-slate-700 font-semibold py-2.5 pl-4 pr-10 rounded-xl focus:ring-2 focus:ring-primary-500 focus:outline-none cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23475569%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:1.2em_1.2em] bg-[position:right_0.8rem_center] bg-no-repeat shadow-sm">
+                    @for($y = $currentYear; $y >= 2020; $y--)
+                        <option value="{{ $y }}" {{ (isset($tahun) ? $tahun : $currentYear) == $y ? 'selected' : '' }}>{{ $y }}</option>
+                    @endfor
                 </select>
             </div>
             <button type="submit" id="btn-load-data" class="w-full sm:w-auto px-6 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-xl transition-all shadow-md">

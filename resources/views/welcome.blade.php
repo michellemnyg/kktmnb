@@ -426,15 +426,15 @@
     <!-- Vanilla JS untuk Interaksi UI -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Sticky Navbar Logic ---
             const navbar = document.getElementById('navbar');
+            
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
                     navbar.classList.remove('bg-transparent', 'py-4');
-                    navbar.classList.add('bg-primary-700', 'shadow-md', 'py-2');
+                    navbar.classList.add('bg-slate-900/85', 'backdrop-blur-md', 'border-b', 'border-slate-800/50', 'shadow-xl', 'py-3');
                 } else {
                     navbar.classList.add('bg-transparent', 'py-4');
-                    navbar.classList.remove('bg-primary-700', 'shadow-md', 'py-2');
+                    navbar.classList.remove('bg-slate-900/85', 'backdrop-blur-md', 'border-b', 'border-slate-800/50', 'shadow-xl', 'py-3');
                 }
             });
             window.dispatchEvent(new Event('scroll'));
