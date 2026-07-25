@@ -244,23 +244,30 @@
                     </div>
                 </div>
 
-                <!-- SECTION XI: Domisili -->
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
-                        <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">XI. Data Domisili</h4>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left text-sm whitespace-nowrap">
-                            <tbody class="divide-y divide-slate-100 text-slate-700">
-                                @include('components.row-mutasi', ['label' => 'a. Penduduk Tetap', 'laki' => 2085, 'perempuan' => 2004])
-                                @include('components.row-mutasi', ['label' => 'b. Penduduk Tidak Tetap', 'laki' => 80, 'perempuan' => 76])
-                                @include('components.row-mutasi', ['label' => 'c. Pendatang', 'laki' => 35, 'perempuan' => 39])
-                                @include('components.row-mutasi', ['label' => 'd. Pindah Keluar', 'laki' => 20, 'perempuan' => 21])
-                                @include('components.row-mutasi', ['label' => 'e. Meninggal Dunia', 'laki' => 12, 'perempuan' => 11])
-                            </tbody>
-                        </table>
-                    </div>
+                <!-- SECTION XI: Data Domisili -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                    <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">XI. Data Domisili</h4>
                 </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm whitespace-nowrap">
+                        <thead class="bg-white text-slate-500 border-b border-slate-200">
+                            <tr>
+                                <th class="px-6 py-3 font-semibold w-2/3">Uraian</th>
+                                <th class="px-6 py-3 font-semibold text-center w-1/3">Jumlah Keluarga</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Jumlah KK</td>
+                                <td class="px-6 py-2 text-center">
+                                    <input type="number" value="1379" readonly class="data-input w-32 text-center bg-transparent border-transparent focus:border-primary-500 focus:ring-1 focus:ring-primary-500 rounded-md py-1 outline-none transition-all">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             </div>
 
             <!-- KOLOM KANAN: Tabel Umur -->
