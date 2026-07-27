@@ -117,7 +117,7 @@
             <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center mb-3">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
             </div>
-            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Laki-Laki</p>
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Laki-Laki (WNI)</p>
             <h3 class="text-2xl font-extrabold text-slate-800">{{ number_format($totalWniL, 0, ',', '.') }}</h3>
         </div>
 
@@ -125,7 +125,7 @@
             <div class="w-10 h-10 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mb-3">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4a4 4 0 100 8 4 4 0 000-8zM2 20h20M12 12v8"></path></svg>
             </div>
-            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Perempuan</p>
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Perempuan (WNI)</p>
             <h3 class="text-2xl font-extrabold text-slate-800">{{ number_format($totalWniP, 0, ',', '.') }}</h3>
         </div>
 
@@ -157,7 +157,7 @@
 
         <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col">
             <div class="mb-4">
-                <h3 class="font-bold text-slate-800 text-base">Proporsi Gender Penduduk</h3>
+                <h3 class="font-bold text-slate-800 text-base">Proporsi Gender Penduduk (WNI)</h3>
             </div>
             <div class="relative w-full flex-1 min-h-[200px] flex items-center justify-center">
                 <canvas id="genderChart"></canvas>

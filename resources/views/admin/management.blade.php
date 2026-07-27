@@ -57,6 +57,10 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                     Edit Data
                 </button>
+                <button id="btn-cancel-edit" type="button" class="hidden px-5 py-2 bg-slate-500 hover:bg-slate-600 text-white font-semibold rounded-lg text-sm shadow-md transition-all flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    Batal
+                </button>
                 <button id="btn-save-mode" type="button" class="hidden px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-sm shadow-md transition-all flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                     Simpan Perubahan
@@ -365,6 +369,7 @@
         
         const btnEdit = document.getElementById('btn-edit-mode');
         const btnSave = document.getElementById('btn-save-mode');
+        const btnCancel = document.getElementById('btn-cancel-edit');
         const inputs = document.querySelectorAll('.data-input');
 
         // Kalkulasi Auto-sum Dinamis untuk Laporan Kiri (I - XII)
@@ -405,12 +410,18 @@
         btnEdit.addEventListener('click', () => {
             btnEdit.classList.add('hidden');
             btnSave.classList.remove('hidden');
+            btnCancel.classList.remove('hidden');
             
             inputs.forEach(input => {
                 input.removeAttribute('readonly');
                 input.classList.remove('bg-transparent', 'border-transparent');
                 input.classList.add('bg-white', 'border-slate-300', 'shadow-inner');
             });
+        });
+
+        // Event Cancel Mode
+        btnCancel.addEventListener('click', () => {
+            window.location.reload();
         });
 
         // Event Save Mode - Show Modal

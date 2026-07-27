@@ -14,15 +14,30 @@ class AdminController extends Controller
         $bulan = $request->get('bulan');
         $tahun = $request->get('tahun');
         
-        $query = Demografi::with('umurs');
         
         if ($bulan && $tahun) {
-            $query->where('bulan', $bulan)->where('tahun', $tahun);
+            $data = Demografi::with('umurs')->where('bulan', $bulan)->where('tahun', $tahun)->first();
         } else {
-            $query->orderBy('tahun', 'desc')->orderBy('bulan', 'desc');
+            $bulanIni = date('m');
+            $tahunIni = date('Y');
+            
+            // Coba ambil data bulan ini
+            $data = Demografi::with('umurs')->where('bulan', $bulanIni)->where('tahun', $tahunIni)->first();
+            
+            // Jika tidak ada data bulan ini, ambil data terbaru yang tersedia
+            if (!$data) {
+                $data = Demografi::with('umurs')->orderBy('tahun', 'desc')->orderBy('bulan', 'desc')->first();
+            }
+            
+            // Sesuaikan bulan & tahun agar sinkron dengan dropdown di view
+            if ($data) {
+                $bulan = $data->bulan;
+                $tahun = $data->tahun;
+            } else {
+                $bulan = $bulanIni;
+                $tahun = $tahunIni;
+            }
         }
-        
-        $data = $query->first();
 
         // Siapkan array data umur untuk chart
         $umurLabels = ['0-4 Thn', '5-14 Thn', '15-24 Thn', '25-34 Thn', '35-44 Thn', '45-54 Thn', '55-64 Thn', '65+ Thn'];

@@ -40,8 +40,7 @@
                 <a href="#sotk" class="max-md:w-full max-md:p-3 max-md:hover:bg-slate-50 max-md:rounded-xl hover:text-primary-600 md:hover:text-primary-200 transition-colors">SOTK</a>
                 <a href="#demografi" class="max-md:w-full max-md:p-3 max-md:hover:bg-slate-50 max-md:rounded-xl hover:text-primary-600 md:hover:text-primary-200 transition-colors">Demografi</a>
                 <a href="#peta" class="max-md:w-full max-md:p-3 max-md:hover:bg-slate-50 max-md:rounded-xl hover:text-primary-600 md:hover:text-primary-200 transition-colors">Peta</a>
-                <a href="#berita" class="max-md:w-full max-md:p-3 max-md:hover:bg-slate-50 max-md:rounded-xl hover:text-primary-600 md:hover:text-primary-200 transition-colors">Berita</a>
-                <a href="#galeri" class="max-md:w-full max-md:p-3 max-md:hover:bg-slate-50 max-md:rounded-xl hover:text-primary-600 md:hover:text-primary-200 transition-colors">Galeri</a>
+
             </div>
         </div>
     </nav>
@@ -257,7 +256,7 @@
             <div class="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg border border-slate-200">
                 <!-- Iframe Google Maps untuk Manembo-Nembo -->
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4682004245997!2d125.1091515!3d1.4426505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3287042a9a5f5733%3A0xc3f6a27e0be3898!2sManembo-Nembo%2C%20Kec.%20Matuari%2C%20Kota%20Bitung%2C%20Sulawesi%20Utara!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                    src="https://www.google.com/maps/d/embed?mid=1PXXBLVcEPuz7TJx82P78pTogCRR3y1g" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
@@ -265,92 +264,9 @@
     </section>
     <!-- ================= END PETA WILAYAH ================= -->
 
-    <!-- ================= BERITA SECTION ================= -->
-    <section id="berita" class="pt-24 pb-12 bg-white relative scroll-mt-20">
-        <div class="container mx-auto px-4 md:px-8">
-            
-            <!-- Berita Terkini -->
-            <div class="mb-12">
-                <div class="flex justify-between items-end mb-10">
-                    <div>
-                        <span class="text-primary-600 font-semibold tracking-wider text-sm uppercase">Seputar Wilayah</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-2">Berita Kelurahan</h2>
-                    </div>
-                    <a href="#" class="hidden md:inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-                        Lihat Semua Berita <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Kartu Berita -->
-                    <article class="bg-slate-50 rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow">
-                        <img src="{{ asset('images/headertemporary.jpeg') }}" alt="Kegiatan" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <p class="text-sm text-slate-500 mb-3">12 Agustus 2026</p>
-                            <h3 class="text-xl font-bold text-slate-800 mb-3 leading-snug hover:text-primary-600 cursor-pointer transition-colors">Kerja Bakti Rutin Warga Manembo-Nembo</h3>
-                            <p class="text-slate-600 mb-4 line-clamp-3">Warga kelurahan mengadakan kegiatan bersih-bersih lingkungan sebagai upaya mencegah banjir di musim penghujan...</p>
-                            <a href="#" class="text-primary-600 font-semibold hover:underline">Baca selengkapnya</a>
-                        </div>
-                    </article>
-                    <article class="bg-slate-50 rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow">
-                        <img src="{{ asset('images/headertemporary.jpeg') }}" alt="Kegiatan" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <p class="text-sm text-slate-500 mb-3">05 Agustus 2026</p>
-                            <h3 class="text-xl font-bold text-slate-800 mb-3 leading-snug hover:text-primary-600 cursor-pointer transition-colors">Penyaluran Bantuan Sosial Kepada Lansia</h3>
-                            <p class="text-slate-600 mb-4 line-clamp-3">Pemerintah kelurahan mendistribusikan paket bantuan sembako kepada warga lanjut usia di wilayah setempat...</p>
-                            <a href="#" class="text-primary-600 font-semibold hover:underline">Baca selengkapnya</a>
-                        </div>
-                    </article>
-                    <article class="bg-slate-50 rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow">
-                        <img src="{{ asset('images/headertemporary.jpeg') }}" alt="Kegiatan" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <p class="text-sm text-slate-500 mb-3">28 Juli 2026</p>
-                            <h3 class="text-xl font-bold text-slate-800 mb-3 leading-snug hover:text-primary-600 cursor-pointer transition-colors">Rapat Koordinasi Persiapan HUT RI</h3>
-                            <p class="text-slate-600 mb-4 line-clamp-3">Segenap perangkat SOTK kelurahan beserta tokoh masyarakat berkumpul membahas agenda perayaan 17 Agustus...</p>
-                            <a href="#" class="text-primary-600 font-semibold hover:underline">Baca selengkapnya</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ================= END BERITA SECTION ================= -->
 
-    <!-- ================= GALERI SECTION ================= -->
-    <section id="galeri" class="pb-24 pt-12 bg-white relative scroll-mt-20">
-        <div class="container mx-auto px-4 md:px-8">
-            <div class="pt-10 border-t border-slate-200">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-primary-600 font-semibold tracking-wider text-sm uppercase">Dokumentasi</span>
-                    <h2 class="text-3xl font-bold text-slate-800 mt-2">Galeri Kelurahan</h2>
-                </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-                    <div class="overflow-hidden rounded-xl bg-slate-200 aspect-square">
-                        <img src="{{ asset('images/headertemporary.jpeg') }}" alt="Galeri 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="overflow-hidden rounded-xl bg-slate-200 aspect-square">
-                        <img src="{{ asset('images/headertemporary.jpeg') }}" alt="Galeri 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="overflow-hidden rounded-xl bg-slate-200 aspect-square">
-                        <img src="{{ asset('images/headertemporary.jpeg') }}" alt="Galeri 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="overflow-hidden rounded-xl bg-slate-200 aspect-square">
-                        <img src="{{ asset('images/headertemporary.jpeg') }}" alt="Galeri 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                    </div>
-                </div>
-
-                <!-- Tombol Lihat Semua Foto -->
-                <div class="text-center mt-8">
-                    <a href="#" class="inline-flex items-center gap-2 px-8 py-3 bg-white border border-slate-200 text-primary-600 font-semibold rounded-full hover:bg-slate-50 hover:border-primary-300 transition-all shadow-sm">
-                        Lihat Semua Foto
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ================= END GALERI SECTION ================= -->
 
     <!-- ================= FOOTER ================= -->
     <footer class="bg-slate-900 text-white pt-12 md:pt-16 pb-8 border-t-4 border-primary-500">
