@@ -32,10 +32,10 @@
     $agamaKristen = ($data->agama_kristen_l ?? 0) + ($data->agama_kristen_p ?? 0);
     $agamaIslam = ($data->agama_islam_l ?? 0) + ($data->agama_islam_p ?? 0);
     $agamaKatolik = ($data->agama_katolik_l ?? 0) + ($data->agama_katolik_p ?? 0);
-    $agamaLainnya = ($data->agama_hindu_l ?? 0) + ($data->agama_hindu_p ?? 0) + 
-                    ($data->agama_buddha_l ?? 0) + ($data->agama_buddha_p ?? 0) + 
-                    ($data->agama_konghucu_l ?? 0) + ($data->agama_konghucu_p ?? 0) + 
-                    ($data->agama_lain_l ?? 0) + ($data->agama_lain_p ?? 0);
+    $agamaHindu = ($data->agama_hindu_l ?? 0) + ($data->agama_hindu_p ?? 0);
+    $agamaBuddha = ($data->agama_buddha_l ?? 0) + ($data->agama_buddha_p ?? 0);
+    $agamaKonghucu = ($data->agama_konghucu_l ?? 0) + ($data->agama_konghucu_p ?? 0);
+    $agamaLainLain = ($data->agama_lain_l ?? 0) + ($data->agama_lain_p ?? 0);
 
     $pendidikan = [
         'SD / Sederajat' => ($data->pend_sd_l ?? 0) + ($data->pend_sd_p ?? 0),
@@ -246,7 +246,10 @@
                 <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span><span class="font-medium text-slate-600">Kristen</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKristen, 0, ',', '.') }}</span></li>
                 <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span><span class="font-medium text-slate-600">Islam</span></div><span class="font-bold text-slate-800">{{ number_format($agamaIslam, 0, ',', '.') }}</span></li>
                 <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span><span class="font-medium text-slate-600">Katholik</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKatolik, 0, ',', '.') }}</span></li>
-                <li class="flex justify-between items-center text-sm"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span><span class="font-medium text-slate-600">Lainnya</span></div><span class="font-bold text-slate-800">{{ number_format($agamaLainnya, 0, ',', '.') }}</span></li>
+                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span><span class="font-medium text-slate-600">Hindu</span></div><span class="font-bold text-slate-800">{{ number_format($agamaHindu, 0, ',', '.') }}</span></li>
+                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span><span class="font-medium text-slate-600">Buddha</span></div><span class="font-bold text-slate-800">{{ number_format($agamaBuddha, 0, ',', '.') }}</span></li>
+                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span><span class="font-medium text-slate-600">Konghucu</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKonghucu, 0, ',', '.') }}</span></li>
+                <li class="flex justify-between items-center text-sm"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span><span class="font-medium text-slate-600">Lain-lain</span></div><span class="font-bold text-slate-800">{{ number_format($agamaLainLain, 0, ',', '.') }}</span></li>
             </ul>
         </div>
 
