@@ -79,8 +79,6 @@
 @endphp
 
 <div class="space-y-6 md:space-y-8 animate-fade-in-up">
-    
-    <!-- ================= HEADER & FILTER ================= -->
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-slate-200 pb-5">
         <div>
             <h2 class="text-2xl font-extrabold text-slate-800">Analisis Kependudukan Terpadu</h2>
@@ -104,8 +102,6 @@
             </select>
         </div>
     </div>
-
-    <!-- ================= LAYER 1: HIGHLIGHT DATA ================= -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
         <div class="col-span-2 md:col-span-1 lg:col-span-1 bg-white p-6 rounded-2xl border-t-4 border-t-primary-500 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center items-center text-center">
             <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">I. Total Penduduk</p>
@@ -144,7 +140,6 @@
         </div>
     </div>
 
-    <!-- ================= LAYER 2: VISUALISASI ================= -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         <div class="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col">
             <div class="flex justify-between items-center mb-6">
@@ -175,7 +170,6 @@
         </div>
     </div>
 
-    <!-- ================= LAYER 3: ADMINISTRASI & MUTASI ================= -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
             <h3 class="font-bold text-slate-800 text-sm mb-4">II. Mutasi Data Penduduk</h3>
@@ -238,72 +232,101 @@
         </div>
     </div>
 
-    <!-- ================= LAYER 4: SOSIAL & PENDIDIKAN ================= -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
             <h3 class="font-bold text-slate-800 text-sm mb-4">V. Distribusi Agama</h3>
             <ul class="space-y-3">
-                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span><span class="font-medium text-slate-600">Kristen</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKristen, 0, ',', '.') }}</span></li>
-                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span><span class="font-medium text-slate-600">Islam</span></div><span class="font-bold text-slate-800">{{ number_format($agamaIslam, 0, ',', '.') }}</span></li>
-                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span><span class="font-medium text-slate-600">Katholik</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKatolik, 0, ',', '.') }}</span></li>
-                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span><span class="font-medium text-slate-600">Hindu</span></div><span class="font-bold text-slate-800">{{ number_format($agamaHindu, 0, ',', '.') }}</span></li>
-                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span><span class="font-medium text-slate-600">Buddha</span></div><span class="font-bold text-slate-800">{{ number_format($agamaBuddha, 0, ',', '.') }}</span></li>
-                <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span><span class="font-medium text-slate-600">Konghucu</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKonghucu, 0, ',', '.') }}</span></li>
-                <li class="flex justify-between items-center text-sm"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span><span class="font-medium text-slate-600">Lain-lain</span></div><span class="font-bold text-slate-800">{{ number_format($agamaLainLain, 0, ',', '.') }}</span></li>
+                @php $hasAgama = false; @endphp
+                @if($agamaKristen > 0) @php $hasAgama = true; @endphp <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span><span class="font-medium text-slate-600">Kristen</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKristen, 0, ',', '.') }}</span></li> @endif
+                @if($agamaIslam > 0) @php $hasAgama = true; @endphp <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span><span class="font-medium text-slate-600">Islam</span></div><span class="font-bold text-slate-800">{{ number_format($agamaIslam, 0, ',', '.') }}</span></li> @endif
+                @if($agamaKatolik > 0) @php $hasAgama = true; @endphp <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span><span class="font-medium text-slate-600">Katholik</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKatolik, 0, ',', '.') }}</span></li> @endif
+                @if($agamaHindu > 0) @php $hasAgama = true; @endphp <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span><span class="font-medium text-slate-600">Hindu</span></div><span class="font-bold text-slate-800">{{ number_format($agamaHindu, 0, ',', '.') }}</span></li> @endif
+                @if($agamaBuddha > 0) @php $hasAgama = true; @endphp <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span><span class="font-medium text-slate-600">Buddha</span></div><span class="font-bold text-slate-800">{{ number_format($agamaBuddha, 0, ',', '.') }}</span></li> @endif
+                @if($agamaKonghucu > 0) @php $hasAgama = true; @endphp <li class="flex justify-between items-center text-sm border-b border-slate-50 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span><span class="font-medium text-slate-600">Konghucu</span></div><span class="font-bold text-slate-800">{{ number_format($agamaKonghucu, 0, ',', '.') }}</span></li> @endif
+                @if($agamaLainLain > 0) @php $hasAgama = true; @endphp <li class="flex justify-between items-center text-sm"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span><span class="font-medium text-slate-600">Lain-lain</span></div><span class="font-bold text-slate-800">{{ number_format($agamaLainLain, 0, ',', '.') }}</span></li> @endif
+                @if(!$hasAgama)
+                    <li class="text-center text-sm text-slate-400 py-4">Data belum tersedia</li>
+                @endif
             </ul>
         </div>
 
         <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
             <h3 class="font-bold text-slate-800 text-sm mb-5">VI. Tingkat Pendidikan</h3>
             <div class="space-y-4">
-                @php $colors = ['bg-blue-400', 'bg-indigo-400', 'bg-fuchsia-500', 'bg-violet-500', 'bg-slate-400']; $i = 0; @endphp
+                @php $colors = ['bg-blue-400', 'bg-indigo-400', 'bg-fuchsia-500', 'bg-violet-500', 'bg-slate-400']; $i = 0; $hasPend = false; @endphp
                 @foreach($pendidikan as $label => $val)
-                    @php $pct = $totalPend > 0 ? round(($val/$totalPend)*100, 1) : 0; @endphp
-                    <div>
-                        <div class="flex justify-between text-xs font-semibold mb-1"><span class="text-slate-600">{{ $label }}</span><span class="text-slate-800">{{ number_format($val, 0, ',', '.') }}</span></div>
-                        <div class="w-full bg-slate-100 rounded-full h-1.5"><div class="{{ $colors[$i++ % 5] }} h-1.5 rounded-full" style="width: {{ $pct }}%"></div></div>
-                    </div>
+                    @if($val > 0)
+                        @php $hasPend = true; $pct = $totalPend > 0 ? round(($val/$totalPend)*100, 1) : 0; @endphp
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1"><span class="text-slate-600">{{ $label }}</span><span class="text-slate-800">{{ number_format($val, 0, ',', '.') }}</span></div>
+                            <div class="w-full bg-slate-100 rounded-full h-1.5"><div class="{{ $colors[$i++ % 5] }} h-1.5 rounded-full" style="width: {{ $pct }}%"></div></div>
+                        </div>
+                    @endif
                 @endforeach
+                @if(!$hasPend)
+                    <div class="text-center text-sm text-slate-400 py-4">Data belum tersedia</div>
+                @endif
             </div>
         </div>
 
         <div class="bg-rose-50/50 p-6 rounded-2xl border border-rose-100 shadow-sm flex flex-col justify-center">
             <h3 class="font-bold text-rose-800 text-sm mb-4">VII. Usia Putus Sekolah</h3>
             <div class="space-y-2">
+                @php $hasPutusSekolah = false; @endphp
                 @foreach($putusSekolah as $label => $val)
-                <div class="flex justify-between text-sm bg-white px-3 py-2 rounded-lg border border-rose-100"><span class="font-medium text-slate-600">{{ $label }}</span><span class="font-bold text-rose-600">{{ number_format($val, 0, ',', '.') }}</span></div>
+                    @if($val > 0)
+                        @php $hasPutusSekolah = true; @endphp
+                        <div class="flex justify-between text-sm bg-white px-3 py-2 rounded-lg border border-rose-100"><span class="font-medium text-slate-600">{{ $label }}</span><span class="font-bold text-rose-600">{{ number_format($val, 0, ',', '.') }}</span></div>
+                    @endif
                 @endforeach
+                @if(!$hasPutusSekolah)
+                    <div class="text-center text-sm text-rose-400 py-4">Data belum tersedia</div>
+                @endif
             </div>
         </div>
     </div>
 
-    <!-- ================= LAYER 5: EKONOMI & INFRASTRUKTUR ================= -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
             <h3 class="font-bold text-slate-800 text-sm mb-4 border-b border-slate-100 pb-2">VIII. Top 5 Pekerjaan</h3>
             <ul class="space-y-3">
-                @php $rank = 1; @endphp
+                @php $rank = 1; $hasPekerjaan = false; @endphp
                 @foreach($topPekerjaan as $label => $val)
-                <li class="flex items-center justify-between bg-slate-50 px-3 py-2 rounded-lg"><span class="text-xs font-semibold text-slate-600">{{ $rank++ }}. {{ $label }}</span><span class="text-sm font-bold text-primary-600">{{ number_format($val, 0, ',', '.') }}</span></li>
+                    @if($val > 0)
+                        @php $hasPekerjaan = true; @endphp
+                        <li class="flex items-center justify-between bg-slate-50 px-3 py-2 rounded-lg"><span class="text-xs font-semibold text-slate-600">{{ $rank++ }}. {{ $label }}</span><span class="text-sm font-bold text-primary-600">{{ number_format($val, 0, ',', '.') }}</span></li>
+                    @endif
                 @endforeach
+                @if(!$hasPekerjaan)
+                    <li class="text-center text-sm text-slate-400 py-4">Data belum tersedia</li>
+                @endif
             </ul>
         </div>
 
         <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
             <h3 class="font-bold text-slate-800 text-sm mb-4 border-b border-slate-100 pb-2">IX. Kondisi Bangunan</h3>
             <div class="flex flex-col gap-3">
+                @if($bgnPermanen > 0)
                 <div class="px-4 py-3 rounded-xl border border-slate-100 bg-slate-50 flex justify-between items-center">
                     <span class="text-xs text-slate-600 font-bold uppercase">Permanen</span>
                     <span class="text-lg font-bold text-primary-600">{{ number_format($bgnPermanen, 0, ',', '.') }}</span>
                 </div>
+                @endif
+                @if($bgnSemi > 0)
                 <div class="px-4 py-3 rounded-xl border border-slate-100 bg-slate-50 flex justify-between items-center">
                     <span class="text-xs text-slate-600 font-bold uppercase">Semi Permanen</span>
                     <span class="text-lg font-bold text-primary-600">{{ number_format($bgnSemi, 0, ',', '.') }}</span>
                 </div>
+                @endif
+                @if($bgnDarurat > 0)
                 <div class="px-4 py-3 rounded-xl border border-rose-100 bg-rose-50 flex justify-between items-center">
                     <span class="text-xs text-rose-600 font-bold uppercase">Darurat</span>
                     <span class="text-lg font-bold text-rose-600">{{ number_format($bgnDarurat, 0, ',', '.') }}</span>
                 </div>
+                @endif
+                @if($bgnPermanen == 0 && $bgnSemi == 0 && $bgnDarurat == 0)
+                    <div class="text-center text-sm text-slate-400 py-4">Data belum tersedia</div>
+                @endif
             </div>
         </div>
 
@@ -337,7 +360,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // TANGGAL FILTER Event Listener
         const dashMonth = document.getElementById('dashboard-month');
         const dashYear = document.getElementById('dashboard-year');
         
@@ -348,7 +370,6 @@
         dashMonth.addEventListener('change', reloadDashboard);
         dashYear.addEventListener('change', reloadDashboard);
 
-        // DATA DARI PHP UNTUK CHART
         const umurLabels = {!! json_encode($umurLabels ?? []) !!};
         const umurL = {!! json_encode($umurL ?? []) !!};
         const umurP = {!! json_encode($umurP ?? []) !!};
@@ -356,7 +377,6 @@
         const totalWniL = {{ $totalWniL }};
         const totalWniP = {{ $totalWniP }};
 
-        // CHART UMUR
         const ctxAge = document.getElementById('ageChart');
         if(ctxAge && umurLabels.length > 0) {
             new Chart(ctxAge, {
@@ -390,8 +410,6 @@
                 }
             });
         }
-
-        // CHART GENDER
         const ctxGender = document.getElementById('genderChart');
         if(ctxGender && (totalWniL > 0 || totalWniP > 0)) {
             new Chart(ctxGender, {
