@@ -290,7 +290,7 @@
             </div>
 
             <div class="pt-6 border-t border-slate-800 text-center text-xs md:text-sm text-slate-500">
-                <p>&copy; 2026 PUNYA MICHEL.</p>
+                <p>&copy; 2026 Kelurahan Manembo-Nembo.</p>
             </div>
         </div>
     </footer>

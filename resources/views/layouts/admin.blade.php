@@ -43,7 +43,7 @@
                 @csrf
                 <button type="submit" class="flex w-full items-center justify-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 rounded-xl px-4 py-3 shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/30">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
-                    Keluar Sistem
+                    Keluar
                 </button>
             </form>
         </aside>
@@ -75,7 +75,7 @@
             <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
                 @yield('content')
                 <div class="mt-10 pt-6 border-t border-slate-200 text-center text-xs text-slate-500">
-                    <p>&copy; 2026 PUNYA MICHEL.</p>
+                    <p>&copy; 2026 Kelurahan Manembo-Nembo.</p>
                 </div>
             </main>
 

@@ -70,7 +70,7 @@
 
         <div class="mt-6 text-center border-t border-slate-100 pt-5">
             <p class="text-xs text-slate-500">
-                &copy; 2026 PUNYA MICHEL.
+                &copy; 2026 Kelurahan Manembo-Nembo.
             </p>
         </div>
 
