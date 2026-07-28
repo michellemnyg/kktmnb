@@ -96,6 +96,11 @@
             <!-- Scrollable Content Area -->
             <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
                 @yield('content')
+
+                <!-- Copyright -->
+                <div class="mt-10 pt-6 border-t border-slate-200 text-center text-xs text-slate-500">
+                    <p>&copy; 2026 PUNYA MICHEL.</p>
+                </div>
             </main>
 
         </div>
