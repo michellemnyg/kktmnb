@@ -14,14 +14,12 @@
 
     <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden p-8 md:p-10 animate-fade-in-up">
         
-        <!-- Header Logo & Title -->
         <div class="text-center mb-8">
             <img src="{{ asset('images/logobitung.png') }}" alt="Logo Bitung" class="h-16 w-auto mx-auto mb-4 drop-shadow">
             <h2 class="text-2xl font-bold text-slate-900">Panel Admin Kelurahan</h2>
             <p class="text-slate-500 text-sm mt-1">Silakan login menggunakan NIP Superadmin</p>
         </div>
 
-        <!-- Form Login (Statis) -->
         <form action="{{ url('/login') }}" method="POST" class="space-y-6">
             @csrf
 

@@ -1,7 +1,6 @@
 <tr class="hover:bg-primary-50/60 transition-colors border-b border-slate-100 last:border-0 group/row even:bg-slate-50/50">
     <td class="px-2 py-2.5 font-semibold text-center text-slate-600 border-r border-slate-100 w-1/4">
         {{ $umur }}
-        <!-- Hidden input sebagai identifier usia -->
         <input type="hidden" name="umur_key[]" value="{{ $umur }}">
     </td>
     <td class="px-2 py-2.5 text-center bg-primary-50/30 border-r border-slate-100 w-1/4">

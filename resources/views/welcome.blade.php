@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelurahan Manembo-Nembo - Kota Bitung</title>
     
-    <!-- Memanggil Font Inter & Vite -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,11 +12,9 @@
 </head>
 <body class="antialiased bg-slate-50 text-slate-800">
 
-    <!-- ================= NAVBAR ================= -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4 text-white">
         <div class="container mx-auto px-4 md:px-8 flex justify-between items-center relative">
             
-            <!-- Logo & Title -->
             <div class="flex items-center gap-3">
                 <img src="{{ asset('images/logobitung.png') }}" alt="Logo Bitung" class="h-10 w-auto">
                 <div id="nav-brand-text">
@@ -26,14 +23,12 @@
                 </div>
             </div>
 
-            <!-- Hamburger Menu (Mobile) -->
             <button class="md:hidden focus:outline-none p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors" id="mobile-menu-btn">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
-            <!-- Desktop & Mobile Menu (Floating Card on Mobile) -->
             <div class="hidden max-md:absolute max-md:top-[120%] max-md:left-4 max-md:right-4 max-md:bg-white max-md:text-slate-800 max-md:rounded-2xl max-md:shadow-2xl max-md:border max-md:border-slate-100 max-md:flex-col md:flex max-md:p-4 gap-2 md:gap-6 font-medium text-sm items-center transition-all duration-300 z-50" id="nav-links">
                 <a href="#home" class="max-md:w-full max-md:p-3 max-md:hover:bg-slate-50 max-md:rounded-xl hover:text-primary-600 md:hover:text-primary-200 transition-colors">Home</a>
                 <a href="#profil" class="max-md:w-full max-md:p-3 max-md:hover:bg-slate-50 max-md:rounded-xl hover:text-primary-600 md:hover:text-primary-200 transition-colors">Profil</a>
@@ -44,17 +39,13 @@
             </div>
         </div>
     </nav>
-    <!-- ================= END NAVBAR ================= -->
 
-    <!-- ================= HERO SECTION ================= -->
     <section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center" 
              style="background-image: url('{{ asset('images/header.jpeg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
         
-        <!-- Overlay Gradient -->
         <div class="absolute inset-0 bg-slate-900/70"></div>
         
         <div class="container relative z-10 mx-auto px-4 mt-20 animate-fade-in-up">
-            <!-- Text Content -->
             <h2 class="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white max-w-5xl mx-auto tracking-tight">
                 Selamat Datang di <br> 
                 <span class="text-primary-400">Kelurahan Manembo-Nembo</span>
@@ -64,19 +55,15 @@
             </p>
         </div>
     </section>
-    <!-- ================= END HERO SECTION ================= -->
 
-    <!-- ================= PROFIL & VISI MISI SECTION ================= -->
     <section id="profil" class="py-24 bg-white relative scroll-mt-20">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
                 
-                <!-- Logo Kota Bitung (Kiri) -->
                 <div class="w-full lg:w-1/3 flex flex-col items-center justify-center">
                     <img src="{{ asset('images/logobitung.png') }}" alt="Logo Kota Bitung" 
                          class="w-48 md:w-56 h-auto object-contain relative z-10 drop-shadow-md">
                     
-                    <!-- Nama Wilayah -->
                     <div class="mt-8 text-center relative z-10">
                         <h3 class="text-2xl font-bold text-slate-800">Manembo-Nembo</h3>
                         <p class="text-primary-600 font-semibold mt-1">Kota Bitung</p>
@@ -84,7 +71,6 @@
                     </div>
                 </div>
 
-                <!-- Konten Visi Misi (Kanan) -->
                 <div class="w-full lg:w-2/3">
                     <div class="mb-4">
                         <span class="text-primary-600 font-semibold tracking-wider text-sm uppercase">Tentang Kelurahan</span>
@@ -98,7 +84,6 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Visi -->
                         <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm">
                             <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center mb-6">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
@@ -109,7 +94,6 @@
                             </p>
                         </div>
 
-                        <!-- Misi -->
                         <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm">
                             <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center mb-6">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
@@ -126,9 +110,7 @@
             </div>
         </div>
     </section>
-    <!-- ================= END PROFIL SECTION ================= -->
 
-    <!-- ================= SOTK SECTION ================= -->
     <section id="sotk" class="py-24 bg-slate-50 border-t border-slate-200 scroll-mt-20">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -136,7 +118,6 @@
                 <p class="text-slate-600">Jajaran perangkat Kelurahan Manembo-Nembo yang siap melayani administrasi dan kebutuhan masyarakat.</p>
             </div>
 
-            <!-- Lurah -->
             <div class="flex flex-col items-center justify-center mb-16">
                 <img src="{{ asset('images/lurah.jpeg') }}" alt="Bapak Lurah Manembo-Nembo" 
                      class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover object-top mb-5 shadow-lg">
@@ -144,7 +125,6 @@
                 <h4 class="text-2xl font-bold text-slate-800">Johnny Kondo, S.A.P.</h4>
             </div>
 
-            <!-- Grid SOTK Bawah -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
                 <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                     <p class="text-sm font-semibold text-primary-600 uppercase mb-1">Sekretaris Lurah</p>
@@ -165,21 +145,17 @@
             </div>
         </div>
     </section>
-    <!-- ================= END SOTK SECTION ================= -->
 
-    <!-- ================= DEMOGRAFI SECTION ================= -->
     <section id="demografi" class="py-24 bg-white relative border-t border-slate-100 scroll-mt-20">
         <div class="container mx-auto px-4 md:px-8">
             
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-100 pb-6">
-                <!-- Judul Section -->
                 <div class="text-left max-w-3xl mb-6 md:mb-0">
                     <span class="text-primary-600 font-semibold tracking-wider text-sm uppercase">Data Statistik</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-2 mb-2">Administrasi Penduduk</h2>
                     <p class="text-slate-600">Ringkasan data kependudukan Kelurahan Manembo-Nembo.</p>
                 </div>
                 
-                <!-- Tanggal Dinamis (Otomatis Mengikuti Sistem) -->
                 <div class="w-full md:w-auto">
                     <div class="inline-flex items-center gap-2 bg-primary-50 border border-primary-100 px-5 py-2.5 rounded-xl text-primary-700 shadow-sm">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -191,10 +167,8 @@
                 </div>
             </div>
 
-            <!-- Trik Grid: 2 kolom di mobile, 3 di tablet, 6 di desktop (untuk centering baris bawah) -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
                 
-                <!-- Kartu 1: Jumlah Penduduk (Full width di Mobile, Normal di Desktop) -->
                 <div class="col-span-2 md:col-span-1 lg:col-span-2 group bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-primary-200 transition-all duration-300 cursor-default">
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -203,7 +177,6 @@
                     <p class="text-slate-600 font-medium">Jumlah Penduduk</p>
                 </div>
 
-                <!-- Kartu 2: Laki-laki -->
                 <div class="col-span-1 md:col-span-1 lg:col-span-2 group bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-primary-200 transition-all duration-300 cursor-default">
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
@@ -212,7 +185,6 @@
                     <p class="text-slate-600 font-medium">Laki-laki</p>
                 </div>
 
-                <!-- Kartu 3: Perempuan -->
                 <div class="col-span-1 md:col-span-1 lg:col-span-2 group bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-primary-200 transition-all duration-300 cursor-default">
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4a4 4 0 100 8 4 4 0 000-8zM2 20h20M12 12v8"></path></svg>
@@ -221,7 +193,6 @@
                     <p class="text-slate-600 font-medium">Perempuan</p>
                 </div>
 
-                <!-- Kartu 4: Kartu Keluarga (Otomatis Rata Tengah di Desktop via lg:col-start-2) -->
                 <div class="col-span-1 md:col-span-1 lg:col-start-2 lg:col-span-2 group bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-primary-200 transition-all duration-300 cursor-default">
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
@@ -230,7 +201,6 @@
                     <p class="text-slate-600 font-medium">Kartu Keluarga</p>
                 </div>
 
-                <!-- Kartu 5: WNA -->
                 <div class="col-span-1 md:col-span-1 lg:col-span-2 group bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-100 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-primary-200 transition-all duration-300 cursor-default">
                     <div class="w-14 h-14 mx-auto bg-primary-100 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 rounded-full flex items-center justify-center mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
@@ -242,9 +212,7 @@
             </div>
         </div>
     </section>
-    <!-- ================= END DEMOGRAFI SECTION ================= -->
 
-    <!-- ================= PETA WILAYAH SECTION ================= -->
     <section id="peta" class="py-24 bg-slate-50 scroll-mt-20">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -254,7 +222,6 @@
             </div>
             
             <div class="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-                <!-- Iframe Google Maps untuk Manembo-Nembo -->
                 <iframe 
                     src="https://www.google.com/maps/d/embed?mid=1PXXBLVcEPuz7TJx82P78pTogCRR3y1g" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
@@ -262,18 +229,11 @@
             </div>
         </div>
     </section>
-    <!-- ================= END PETA WILAYAH ================= -->
 
-
-
-
-
-    <!-- ================= FOOTER ================= -->
     <footer class="bg-slate-900 text-white pt-12 md:pt-16 pb-8 border-t-4 border-primary-500">
         <div class="container mx-auto px-4 md:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-12 mb-8 md:mb-12">
-                
-                <!-- Kolom 1: Brand & Alamat Lengkap -->
+            
                 <div class="mb-8 md:mb-0">
                     <div class="flex items-center gap-3 mb-6">
                         <img src="{{ asset('images/logobitung.png') }}" alt="Logo Bitung" class="h-14 md:h-16 w-auto p-1">
@@ -288,7 +248,6 @@
                     </div>
                 </div>
 
-                <!-- Kolom 2: Hubungi Kami -->
                 <div class="border-t border-slate-800 md:border-none pt-4 md:pt-0">
                     <button class="footer-toggle w-full flex justify-between items-center md:pointer-events-none focus:outline-none mb-0 md:mb-6">
                         <h5 class="text-base md:text-lg font-bold text-slate-100 pointer-events-none">Hubungi Kami</h5>
@@ -314,7 +273,6 @@
                     </div>
                 </div>
 
-                <!-- Kolom 3: Jelajahi (Tautan Eksternal) -->
                 <div class="border-t border-slate-800 md:border-none pt-4 md:pt-0">
                     <button class="footer-toggle w-full flex justify-between items-center md:pointer-events-none focus:outline-none mb-0 md:mb-6">
                         <h5 class="text-base md:text-lg font-bold text-slate-100 pointer-events-none">Jelajahi</h5>
@@ -331,15 +289,12 @@
 
             </div>
 
-            <!-- Copyright -->
             <div class="pt-6 border-t border-slate-800 text-center text-xs md:text-sm text-slate-500">
                 <p>&copy; 2026 PUNYA MICHEL.</p>
             </div>
         </div>
     </footer>
-    <!-- ================= END FOOTER ================= -->
 
-    <!-- Vanilla JS untuk Interaksi UI -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.getElementById('navbar');
@@ -355,9 +310,6 @@
             });
             window.dispatchEvent(new Event('scroll'));
 
-
-
-            // --- Mobile Menu Toggle ---
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const navLinks = document.getElementById('nav-links');
             
@@ -366,7 +318,6 @@
                 navLinks.classList.toggle('flex');
             });
 
-            // Otomatis menutup mobile menu ketika salah satu link diklik
             const navItems = navLinks.querySelectorAll('a');
             navItems.forEach(item => {
                 item.addEventListener('click', () => {
@@ -377,7 +328,6 @@
                 });
             });
 
-            // --- Footer Accordion Mobile ---
             const footerToggles = document.querySelectorAll('.footer-toggle');
             footerToggles.forEach(toggle => {
                 toggle.addEventListener('click', () => {

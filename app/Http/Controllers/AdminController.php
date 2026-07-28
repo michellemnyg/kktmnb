@@ -8,7 +8,6 @@ use App\Models\DemografiUmur;
 
 class AdminController extends Controller
 {
-    // Menampilkan Dashboard Overview
     public function dashboard(Request $request)
     {
         $bulan = $request->get('bulan');
@@ -21,15 +20,12 @@ class AdminController extends Controller
             $bulanIni = date('m');
             $tahunIni = date('Y');
             
-            // Coba ambil data bulan ini
             $data = Demografi::with('umurs')->where('bulan', $bulanIni)->where('tahun', $tahunIni)->first();
             
-            // Jika tidak ada data bulan ini, ambil data terbaru yang tersedia
             if (!$data) {
                 $data = Demografi::with('umurs')->orderBy('tahun', 'desc')->orderBy('bulan', 'desc')->first();
             }
             
-            // Sesuaikan bulan & tahun agar sinkron dengan dropdown di view
             if ($data) {
                 $bulan = $data->bulan;
                 $tahun = $data->tahun;
@@ -39,7 +35,6 @@ class AdminController extends Controller
             }
         }
 
-        // Siapkan array data umur untuk chart
         $umurLabels = ['0-4 Thn', '5-14 Thn', '15-24 Thn', '25-34 Thn', '35-44 Thn', '45-54 Thn', '55-64 Thn', '65+ Thn'];
         $umurL = array_fill(0, 8, 0);
         $umurP = array_fill(0, 8, 0);
@@ -57,7 +52,7 @@ class AdminController extends Controller
                 elseif ($umurInt >= 35 && $umurInt <= 44) $kategori = 4;
                 elseif ($umurInt >= 45 && $umurInt <= 54) $kategori = 5;
                 elseif ($umurInt >= 55 && $umurInt <= 64) $kategori = 6;
-                else $kategori = 7; // 65+
+                else $kategori = 7;
                 
                 $umurL[$kategori] += $u->laki;
                 $umurP[$kategori] += $u->perempuan;
@@ -67,7 +62,6 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('data', 'bulan', 'tahun', 'umurLabels', 'umurL', 'umurP'));
     }
 
-    // Menampilkan Halaman Manajemen
     public function management(Request $request)
     {
         $bulan = $request->get('bulan');
@@ -81,10 +75,8 @@ class AdminController extends Controller
         return view('admin.management', compact('data', 'bulan', 'tahun'));
     }
 
-    // Memproses Input Data dari Operator
     public function saveData(Request $request)
     {
-        // Daftar semua field integer yang diizinkan sesuai database (Mencegah Mass Assignment)
         $allowedIntegerFields = [
             'wni_l', 'wni_p', 'wna_l', 'wna_p',
             'lahir_l', 'lahir_p', 'mati_l', 'mati_p', 'datang_l', 'datang_p', 'pindah_l', 'pindah_p',
@@ -100,7 +92,6 @@ class AdminController extends Controller
             'jemaat_sm', 'jemaat_remaja', 'jemaat_pemuda', 'jemaat_ibu', 'jemaat_bapa', 'jemaat_lansia', 'jemaat_koor'
         ];
 
-        // Buat rules dinamis
         $rules = [
             'bulan' => ['required', 'string', 'size:2'],
             'tahun' => ['required', 'integer', 'min:2000', 'max:2100'],
@@ -116,24 +107,19 @@ class AdminController extends Controller
             $rules[$field] = ['nullable', 'numeric', 'min:0'];
         }
 
-        // 1. Validasi ketat semua input
         $validatedData = $request->validate($rules);
 
-        // 2. Ambil hanya data demografi (tanpa umur, bulan, tahun)
         $dataDemografi = \Illuminate\Support\Arr::only($validatedData, $allowedIntegerFields);
         
-        // Ubah null menjadi 0 untuk keamanan konsistensi tipe data di database
         foreach ($dataDemografi as $key => $val) {
             $dataDemografi[$key] = $val ?? 0;
         }
 
-        // 3. Simpan atau Update Master Demografi
         $laporan = Demografi::updateOrCreate(
-            ['bulan' => $validatedData['bulan'], 'tahun' => $validatedData['tahun']], // Kunci pencarian
-            $dataDemografi // Data yang disimpan
+            ['bulan' => $validatedData['bulan'], 'tahun' => $validatedData['tahun']], 
+            $dataDemografi 
         );
 
-        // 4. Simpan atau Update Relasi Umur (80+ Baris)
         if (isset($validatedData['umur_key']) && is_array($validatedData['umur_key'])) {
             foreach ($validatedData['umur_key'] as $index => $umur) {
                 $laporan->umurs()->updateOrCreate(
@@ -146,7 +132,6 @@ class AdminController extends Controller
             }
         }
 
-        // 5. Kembalikan ke halaman sebelumnya dengan notifikasi sukses
         return back()->with('success', 'Data laporan ' . $validatedData['bulan'] . '/' . $validatedData['tahun'] . ' berhasil disimpan & dipublikasikan!');
     }
 }

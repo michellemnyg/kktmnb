@@ -13,8 +13,5 @@ class DatabaseSeeder extends Seeder
             'nip' => '0000',
             'password' => Hash::make('testingweb'),
             'role' => 'superadmin',
-        ]);
-
-        // Demografi data has been removed as per your request so you can input it yourself.
-    }
+        ]);    }
 }

@@ -12,7 +12,6 @@
         </div>
     </div>
 
-    <!-- Tampilkan Error Validasi Jika Ada -->
     @if ($errors->any())
         <div class="bg-red-50 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-r-lg shadow-sm">
             <div class="flex items-center mb-2">
@@ -27,7 +26,6 @@
         </div>
     @endif
 
-    <!-- STEP 1: PILIH PERIODE -->
     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
         <h3 class="text-sm font-bold text-primary-600 uppercase tracking-wider mb-4">1. Pilih Periode Data</h3>
         <form action="{{ url('/admin/management') }}" method="GET" class="flex flex-col sm:flex-row gap-4 items-end">
@@ -57,7 +55,6 @@
         </form>
     </div>
 
-    <!-- STEP 2: VIEW / EDIT DATA -->
     @if(isset($bulan) && isset($tahun))
     <div id="data-editor-section" class="space-y-6 opacity-100 transition-opacity duration-500">
         <form action="{{ url('/admin/management') }}" method="POST" id="data-form">
@@ -84,10 +81,7 @@
         </div>
 
         <div class="flex flex-col lg:flex-row gap-6 items-start">
-            
-            <!-- KOLOM KIRI: Laporan Utama (Section I - XII) -->
             <div class="w-full lg:w-2/3 space-y-6">
-                <!-- SECTION I: Jumlah Penduduk -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">I. Jumlah Penduduk</h4>
@@ -110,7 +104,6 @@
                     </div>
                 </div>
                 
-                <!-- SECTION II: Mutasi -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">II. Jumlah Data Mutasi</h4>
@@ -130,7 +123,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION III & IV: Wajib KK & KTP -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">III. Wajib KK & IV. Wajib KTP</h4>
@@ -149,7 +141,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION V: Agama -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">V. Penduduk Menurut Agama</h4>
@@ -169,7 +160,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION VI: Pendidikan -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">VI. Penduduk Menurut Pendidikan</h4>
@@ -187,7 +177,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION VII: Usia Putus Sekolah -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">VII. Usia Yang Putus Sekolah</h4>
@@ -207,7 +196,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION VIII: Pekerjaan -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">VIII. Penduduk Menurut Pekerjaan</h4>
@@ -237,7 +225,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION IX: Bangunan -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">IX. Kondisi Bangunan</h4>
@@ -254,7 +241,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION X: Kendaraan -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">X. Kendaraan Bermotor</h4>
@@ -273,7 +259,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION XI: Data Domisili -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
                     <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">XI. Data Domisili</h4>
@@ -299,21 +284,15 @@
             </div>
             </div>
 
-            <!-- KOLOM KANAN: Tabel Umur -->
             <div class="w-full lg:w-1/3">
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden h-full flex flex-col">
                     
-                    <!-- Header Tabel Elegan -->
                     <div class="bg-slate-50 px-5 py-4 border-b border-slate-200 flex justify-between items-center">
                         <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">Data Jiwa Per Usia</h4>
                         <span class="text-[10px] font-bold bg-primary-100 text-primary-700 px-2.5 py-1 rounded-md">0 - 80+ Tahun</span>
                     </div>
-
-                    <!-- Wrapper Tabel (Scroll di Mobile, Membentang di Desktop) -->
                     <div class="max-h-[500px] overflow-y-auto lg:max-h-none lg:overflow-visible p-4 flex-1">
                         <table class="w-full text-sm border-collapse rounded-xl overflow-hidden ring-1 ring-slate-200">
-                            
-                            <!-- Thead yang lebih soft dan profesional -->
                             <thead class="bg-slate-100 text-slate-600 border-b border-slate-200 text-xs tracking-wider uppercase">
                                 <tr>
                                     <th class="px-2 py-3 font-bold text-center border-r border-slate-200">Umur</th>
@@ -348,12 +327,9 @@
         </form>
     </div>
     @endif
-        <!-- MODAL KONFIRMASI -->
     <div id="confirm-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center">
-        <!-- Backdrop -->
         <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop"></div>
         
-        <!-- Modal Content -->
         <div class="relative bg-white rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
             <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
@@ -386,8 +362,6 @@
         const btnSave = document.getElementById('btn-save-mode');
         const btnCancel = document.getElementById('btn-cancel-edit');
         const inputs = document.querySelectorAll('.data-input');
-
-        // Kalkulasi Auto-sum Dinamis untuk Laporan Kiri (I - XII)
         const rowsMutasi = document.querySelectorAll('tr');
         rowsMutasi.forEach(row => {
             const inputL = row.querySelector('.input-laki');
@@ -403,7 +377,6 @@
             }
         });
 
-        // Kalkulasi Auto-sum Dinamis untuk Tabel Umur Kanan
         const rowsUmur = document.querySelectorAll('#table-umur tr');
         rowsUmur.forEach(row => {
             const inputL = row.querySelector('.input-laki-umur');
@@ -419,9 +392,6 @@
             }
         });
 
-
-
-        // Event Edit Mode
         btnEdit.addEventListener('click', () => {
             btnEdit.classList.add('hidden');
             btnSave.classList.remove('hidden');
@@ -434,12 +404,9 @@
             });
         });
 
-        // Event Cancel Mode
         btnCancel.addEventListener('click', () => {
             window.location.reload();
         });
-
-        // Event Save Mode - Show Modal
         btnSave.addEventListener('click', () => {
             const modal = document.getElementById('confirm-modal');
             const backdrop = document.getElementById('modal-backdrop');
@@ -453,7 +420,6 @@
             });
         });
 
-        // Modal Cancel
         document.getElementById('btn-modal-cancel').addEventListener('click', () => {
             const modal = document.getElementById('confirm-modal');
             const backdrop = document.getElementById('modal-backdrop');
@@ -467,7 +433,6 @@
             }, 300);
         });
 
-        // Modal Confirm
         document.getElementById('btn-modal-confirm').addEventListener('click', function() {
             this.innerHTML = '<svg class="animate-spin w-5 h-5 mx-auto text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>';
             this.classList.add('opacity-75', 'cursor-not-allowed');
