@@ -107,13 +107,13 @@ class AdminController extends Controller
             'umur_key' => ['nullable', 'array'],
             'umur_key.*' => ['string'],
             'umur_l' => ['nullable', 'array'],
-            'umur_l.*' => ['nullable', 'integer', 'min:0'],
+            'umur_l.*' => ['nullable', 'numeric', 'min:0'],
             'umur_p' => ['nullable', 'array'],
-            'umur_p.*' => ['nullable', 'integer', 'min:0'],
+            'umur_p.*' => ['nullable', 'numeric', 'min:0'],
         ];
 
         foreach ($allowedIntegerFields as $field) {
-            $rules[$field] = ['nullable', 'integer', 'min:0'];
+            $rules[$field] = ['nullable', 'numeric', 'min:0'];
         }
 
         // 1. Validasi ketat semua input
