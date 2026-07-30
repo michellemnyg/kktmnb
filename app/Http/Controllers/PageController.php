@@ -9,10 +9,8 @@ class PageController extends Controller
 {
     public function index()
     {
-        // Selalu ambil data terbaru yang tersedia di database
         $data = Demografi::orderBy('tahun', 'desc')->orderBy('bulan', 'desc')->first();
 
-        // Tentukan bulan dan tahun yang ditampilkan
         $displayBulan = $data ? str_pad($data->bulan, 2, '0', STR_PAD_LEFT) : date('m');
         $displayTahun = $data ? $data->tahun : date('Y');
 

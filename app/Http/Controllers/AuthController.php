@@ -7,17 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // Menampilkan halaman auth.blade.php
     public function showLogin()
     {
-        // Jika sudah login, tendang langsung ke dashboard
         if (Auth::check()) {
             return redirect()->route('admin.dashboard');
         }
         return view('auth');
     }
 
-    // Memproses data login
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -27,7 +24,6 @@ class AuthController extends Controller
 
         $this->ensureIsNotRateLimited($request);
 
-        // Cek kecocokan NIP dan Password di database
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             \Illuminate\Support\Facades\RateLimiter::clear($this->throttleKey($request));
             $request->session()->regenerate();
@@ -36,7 +32,6 @@ class AuthController extends Controller
 
         \Illuminate\Support\Facades\RateLimiter::hit($this->throttleKey($request));
 
-        // Jika salah, kembalikan ke halaman login dengan pesan error
         return back()->withErrors([
             'nip' => 'NIP atau Password yang Anda masukkan salah.',
         ])->onlyInput('nip');
@@ -73,7 +68,6 @@ class AuthController extends Controller
         return \Illuminate\Support\Str::transliterate(\Illuminate\Support\Str::lower($request->input('nip')).'|'.$request->ip());
     }
 
-    // Memproses logout
     public function logout(Request $request)
     {
         Auth::logout();
