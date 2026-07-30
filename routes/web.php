@@ -15,4 +15,5 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/management', [AdminController::class, 'management'])->name('admin.management');
     Route::post('/management', [AdminController::class, 'saveData']); 
+    Route::get('/management/export', [AdminController::class, 'exportExcel'])->name('admin.management.export');
 });

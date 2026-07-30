@@ -134,4 +134,15 @@ class AdminController extends Controller
 
         return back()->with('success', 'Data laporan ' . $validatedData['bulan'] . '/' . $validatedData['tahun'] . ' berhasil disimpan & dipublikasikan!');
     }
+
+    public function exportExcel(Request $request)
+    {
+        $bulan = $request->get('bulan', date('m'));
+        $tahun = $request->get('tahun', date('Y'));
+        
+        $monthsList = ['01'=>'Januari','02'=>'Februari','03'=>'Maret','04'=>'April','05'=>'Mei','06'=>'Juni','07'=>'Juli','08'=>'Agustus','09'=>'September','10'=>'Oktober','11'=>'November','12'=>'Desember'];
+        $namaBulan = $monthsList[$bulan] ?? 'Januari';
+
+        return \Maatwebsite\Excel\Facades\Excel::download(new \App\Exports\DemografiExport($bulan, $tahun, $namaBulan), 'Laporan_Penduduk_'.$namaBulan.'_'.$tahun.'.xlsx');
+    }
 }
