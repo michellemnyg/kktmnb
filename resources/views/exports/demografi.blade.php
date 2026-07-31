@@ -187,7 +187,7 @@ $right[] = [
     'is_bold' => true
 ];
 
-$maxRows = max(count($left), count($right));
+$maxRows = max(count($left), count($right) + 1);
 @endphp
 
 <table style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 11px;">
