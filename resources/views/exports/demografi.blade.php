@@ -176,7 +176,7 @@ for ($i = 0; $i <= 80; $i++) {
 }
 // Add total row at bottom of right table
 $right[] = [
-    'h' => '', // total is handled differently in view, or just put it here
+    'h' => 'TOTAL', // Add label here
     'i' => $formatNum($tot_umur_l + $tot_umur_p),
     'j' => $formatNum($tot_umur_l),
     'k' => $formatNum($tot_umur_p),

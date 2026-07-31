@@ -104,6 +104,14 @@
                                 @include('components.row-mutasi', ['label' => 'a. WNA', 'name_l' => 'wna_l', 'name_p' => 'wna_p', 'laki' => $data->wna_l ?? 0, 'perempuan' => $data->wna_p ?? 0])
                                 @include('components.row-mutasi', ['label' => 'b. WNI', 'name_l' => 'wni_l', 'name_p' => 'wni_p', 'laki' => $data->wni_l ?? 0, 'perempuan' => $data->wni_p ?? 0])
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total</td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-l w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-p w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-total w-24 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -160,6 +168,14 @@
                                 @include('components.row-mutasi', ['label' => 'f. Konghucu', 'name_l' => 'agama_konghucu_l', 'name_p' => 'agama_konghucu_p', 'laki' => $data->agama_konghucu_l ?? 0, 'perempuan' => $data->agama_konghucu_p ?? 0])
                                 @include('components.row-mutasi', ['label' => 'g. Lainnya', 'name_l' => 'agama_lain_l', 'name_p' => 'agama_lain_p', 'laki' => $data->agama_lain_l ?? 0, 'perempuan' => $data->agama_lain_p ?? 0])
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total</td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-l w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-p w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-total w-24 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -177,6 +193,14 @@
                                 @include('components.row-mutasi', ['label' => 'd. SMA', 'name_l' => 'pend_sma_l', 'name_p' => 'pend_sma_p', 'laki' => $data->pend_sma_l ?? 0, 'perempuan' => $data->pend_sma_p ?? 0])
                                 @include('components.row-mutasi', ['label' => 'e. Perguruan Tinggi', 'name_l' => 'pend_pt_l', 'name_p' => 'pend_pt_p', 'laki' => $data->pend_pt_l ?? 0, 'perempuan' => $data->pend_pt_p ?? 0])
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total</td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-l w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-p w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-total w-24 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -196,6 +220,14 @@
                                 @include('components.row-mutasi', ['label' => 'f. Cacat Fisik', 'name_l' => 'cacat_fisik_l', 'name_p' => 'cacat_fisik_p', 'laki' => $data->cacat_fisik_l ?? 0, 'perempuan' => $data->cacat_fisik_p ?? 0])
                                 @include('components.row-mutasi', ['label' => 'g. Cacat Mental', 'name_l' => 'cacat_mental_l', 'name_p' => 'cacat_mental_p', 'laki' => $data->cacat_mental_l ?? 0, 'perempuan' => $data->cacat_mental_p ?? 0])
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total</td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-l w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-p w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-total w-24 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -225,6 +257,14 @@
                                 @include('components.row-mutasi', ['label' => 'p. Sopir', 'name_l' => 'pkj_sopir_l', 'name_p' => 'pkj_sopir_p', 'laki' => $data->pkj_sopir_l ?? 0, 'perempuan' => $data->pkj_sopir_p ?? 0])
                                 @include('components.row-mutasi', ['label' => 'q. Belum/Tidak Bekerja', 'name_l' => 'pkj_belum_l', 'name_p' => 'pkj_belum_p', 'laki' => $data->pkj_belum_l ?? 0, 'perempuan' => $data->pkj_belum_p ?? 0])
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total</td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-l w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-p w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-total w-24 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -321,6 +361,14 @@
                                     ])
                                 @endfor
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-2 py-3 font-bold text-primary-700 text-center uppercase text-xs">Total</td>
+                                    <td class="px-2 py-3 text-center"><input type="number" readonly class="tfoot-total w-24 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-2 py-3 text-center"><input type="number" readonly class="tfoot-l w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-2 py-3 text-center"><input type="number" readonly class="tfoot-p w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -391,6 +439,37 @@
                 };
                 inputL.addEventListener('input', calcTotalUmur);
                 inputP.addEventListener('input', calcTotalUmur);
+            }
+        });
+
+        const calculateSectionTotal = (tbody, tfoot) => {
+            const inputsL = tbody.querySelectorAll('.input-laki, .input-laki-umur');
+            const inputsP = tbody.querySelectorAll('.input-perempuan, .input-perempuan-umur');
+            
+            let sumL = 0, sumP = 0;
+            inputsL.forEach(inp => sumL += (parseInt(inp.value) || 0));
+            inputsP.forEach(inp => sumP += (parseInt(inp.value) || 0));
+            
+            const tfL = tfoot.querySelector('.tfoot-l');
+            const tfP = tfoot.querySelector('.tfoot-p');
+            const tfTotal = tfoot.querySelector('.tfoot-total');
+            
+            if (tfL) tfL.value = sumL;
+            if (tfP) tfP.value = sumP;
+            if (tfTotal) tfTotal.value = sumL + sumP;
+        };
+
+        const tables = document.querySelectorAll('table');
+        tables.forEach(table => {
+            const tbody = table.querySelector('tbody');
+            const tfoot = table.querySelector('tfoot');
+            if (tbody && tfoot) {
+                calculateSectionTotal(tbody, tfoot);
+                
+                const inputs = tbody.querySelectorAll('input[type="number"]');
+                inputs.forEach(input => {
+                    input.addEventListener('input', () => calculateSectionTotal(tbody, tfoot));
+                });
             }
         });
 
