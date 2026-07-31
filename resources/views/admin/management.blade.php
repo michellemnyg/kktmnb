@@ -131,6 +131,14 @@
                                 @include('components.row-mutasi', ['label' => 'c. Datang', 'name_l' => 'datang_l', 'name_p' => 'datang_p', 'laki' => $data->datang_l ?? 0, 'perempuan' => $data->datang_p ?? 0])
                                 @include('components.row-mutasi', ['label' => 'd. Pindah', 'name_l' => 'pindah_l', 'name_p' => 'pindah_p', 'laki' => $data->pindah_l ?? 0, 'perempuan' => $data->pindah_p ?? 0])
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total</td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-l w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-p w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-total w-24 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -142,13 +150,47 @@
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-sm whitespace-nowrap">
                             <tbody class="divide-y divide-slate-100 text-slate-700">
-                                <tr class="bg-slate-50/50"><td class="px-6 py-3 font-bold text-primary-700" colspan="2">WAJIB KK</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2 pl-10">a. Memiliki KK</td><td class="px-6 py-2"><input type="number" name="kk_ada" value="{{ $data->kk_ada ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Keluarga</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2 pl-10">b. Belum Memiliki KK</td><td class="px-6 py-2"><input type="number" name="kk_belum" value="{{ $data->kk_belum ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Keluarga</td></tr>
-                                <tr class="bg-slate-50/50"><td class="px-6 py-3 font-bold text-primary-700" colspan="2">WAJIB KTP</td></tr>
+                                <tr class="bg-slate-50/50"><td class="px-6 py-3 font-bold text-primary-700" colspan="4">WAJIB KK</td></tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-6 py-4 font-medium w-1/2 pl-10" colspan="3">a. Memiliki KK</td>
+                                    <td class="px-6 py-2 text-center"><input type="number" name="kk_ada" value="{{ $data->kk_ada ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent text-center focus:ring-1 rounded-md py-1 outline-none transition-all"> Keluarga</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="px-6 py-4 font-medium w-1/2 pl-10" colspan="3">b. Belum Memiliki KK</td>
+                                    <td class="px-6 py-2 text-center"><input type="number" name="kk_belum" value="{{ $data->kk_belum ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent text-center focus:ring-1 rounded-md py-1 outline-none transition-all"> Keluarga</td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs" colspan="3">Total Wajib KK</td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-single w-32 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                        <h4 class="font-bold text-slate-800 uppercase tracking-wide text-sm">IV. Wajib KTP</h4>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm whitespace-nowrap">
+                            <thead class="bg-white text-slate-500 border-b border-slate-200">
+                                <tr><th class="px-6 py-3 font-semibold w-1/2">Uraian</th><th class="px-6 py-3 font-semibold text-center w-1/6">L</th><th class="px-6 py-3 font-semibold text-center w-1/6">P</th><th class="px-6 py-3 font-semibold text-center w-1/6">Total</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-700">
                                 @include('components.row-mutasi', ['label' => 'a. Memiliki KTP', 'name_l' => 'ktp_ada_l', 'name_p' => 'ktp_ada_p', 'laki' => $data->ktp_ada_l ?? 0, 'perempuan' => $data->ktp_ada_p ?? 0])
                                 @include('components.row-mutasi', ['label' => 'b. Belum Memiliki KTP', 'name_l' => 'ktp_belum_l', 'name_p' => 'ktp_belum_p', 'laki' => $data->ktp_belum_l ?? 0, 'perempuan' => $data->ktp_belum_p ?? 0])
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total Wajib KTP</td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-l w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-p w-24 text-center bg-transparent border-transparent font-bold text-primary-700 outline-none pointer-events-none" value="0"></td>
+                                    <td class="px-6 py-3 text-center"><input type="number" readonly class="tfoot-total w-24 text-center bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -276,11 +318,17 @@
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-sm whitespace-nowrap">
                             <tbody class="divide-y divide-slate-100 text-slate-700">
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">a. Darurat</td><td class="px-6 py-2"><input type="number" name="bgn_darurat" value="{{ $data->bgn_darurat ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Bangunan</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">b. Semi Permanen</td><td class="px-6 py-2"><input type="number" name="bgn_semi" value="{{ $data->bgn_semi ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Bangunan</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">c. Permanen</td><td class="px-6 py-2"><input type="number" name="bgn_permanen" value="{{ $data->bgn_permanen ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Bangunan</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">d. Lainnya</td><td class="px-6 py-2"><input type="number" name="bgn_lainnya" value="{{ $data->bgn_lainnya ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Bangunan</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">a. Darurat</td><td class="px-6 py-2"><input type="number" name="bgn_darurat" value="{{ $data->bgn_darurat ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Bangunan</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">b. Semi Permanen</td><td class="px-6 py-2"><input type="number" name="bgn_semi" value="{{ $data->bgn_semi ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Bangunan</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">c. Permanen</td><td class="px-6 py-2"><input type="number" name="bgn_permanen" value="{{ $data->bgn_permanen ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Bangunan</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">d. Lainnya</td><td class="px-6 py-2"><input type="number" name="bgn_lainnya" value="{{ $data->bgn_lainnya ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Bangunan</td></tr>
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total</td>
+                                    <td class="px-6 py-3"><input type="number" readonly class="tfoot-single w-32 bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"> Bangunan</td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -292,13 +340,19 @@
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-sm whitespace-nowrap">
                             <tbody class="divide-y divide-slate-100 text-slate-700">
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">a. Sepeda Motor</td><td class="px-6 py-2"><input type="number" name="kdr_motor" value="{{ $data->kdr_motor ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">b. Mobil Pribadi</td><td class="px-6 py-2"><input type="number" name="kdr_mobil" value="{{ $data->kdr_mobil ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">c. Bus</td><td class="px-6 py-2"><input type="number" name="kdr_bus" value="{{ $data->kdr_bus ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">d. Mikrolet</td><td class="px-6 py-2"><input type="number" name="kdr_mikrolet" value="{{ $data->kdr_mikrolet ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">e. Truck</td><td class="px-6 py-2"><input type="number" name="kdr_truk" value="{{ $data->kdr_truk ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
-                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">f. Pick Up</td><td class="px-6 py-2"><input type="number" name="kdr_pickup" value="{{ $data->kdr_pickup ?? 0 }}" readonly class="data-input w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">a. Sepeda Motor</td><td class="px-6 py-2"><input type="number" name="kdr_motor" value="{{ $data->kdr_motor ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">b. Mobil Pribadi</td><td class="px-6 py-2"><input type="number" name="kdr_mobil" value="{{ $data->kdr_mobil ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">c. Bus</td><td class="px-6 py-2"><input type="number" name="kdr_bus" value="{{ $data->kdr_bus ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">d. Mikrolet</td><td class="px-6 py-2"><input type="number" name="kdr_mikrolet" value="{{ $data->kdr_mikrolet ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">e. Truck</td><td class="px-6 py-2"><input type="number" name="kdr_truk" value="{{ $data->kdr_truk ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
+                                <tr class="hover:bg-slate-50"><td class="px-6 py-4 font-medium w-1/2">f. Pick Up</td><td class="px-6 py-2"><input type="number" name="kdr_pickup" value="{{ $data->kdr_pickup ?? 0 }}" readonly class="data-input input-single w-32 bg-transparent border-transparent focus:ring-1 rounded-md py-1 outline-none transition-all"> Unit</td></tr>
                             </tbody>
+                            <tfoot class="bg-primary-50 border-t border-primary-200">
+                                <tr>
+                                    <td class="px-6 py-3 font-bold text-primary-700 text-right uppercase text-xs">Total</td>
+                                    <td class="px-6 py-3"><input type="number" readonly class="tfoot-single w-32 bg-transparent border-transparent font-bold text-primary-800 outline-none pointer-events-none" value="0"> Unit</td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -445,18 +499,22 @@
         const calculateSectionTotal = (tbody, tfoot) => {
             const inputsL = tbody.querySelectorAll('.input-laki, .input-laki-umur');
             const inputsP = tbody.querySelectorAll('.input-perempuan, .input-perempuan-umur');
+            const inputsSingle = tbody.querySelectorAll('.input-single');
             
-            let sumL = 0, sumP = 0;
+            let sumL = 0, sumP = 0, sumSingle = 0;
             inputsL.forEach(inp => sumL += (parseInt(inp.value) || 0));
             inputsP.forEach(inp => sumP += (parseInt(inp.value) || 0));
+            inputsSingle.forEach(inp => sumSingle += (parseInt(inp.value) || 0));
             
             const tfL = tfoot.querySelector('.tfoot-l');
             const tfP = tfoot.querySelector('.tfoot-p');
             const tfTotal = tfoot.querySelector('.tfoot-total');
+            const tfSingle = tfoot.querySelector('.tfoot-single');
             
             if (tfL) tfL.value = sumL;
             if (tfP) tfP.value = sumP;
             if (tfTotal) tfTotal.value = sumL + sumP;
+            if (tfSingle) tfSingle.value = sumSingle;
         };
 
         const tables = document.querySelectorAll('table');

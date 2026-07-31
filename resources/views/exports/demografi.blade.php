@@ -35,7 +35,9 @@ $addLeft('', 'b. WNI', ':', $formatNum($l_wni), $formatNum($p_wni), $formatNum($
 $addLeft('', 'JUMLAH PENDUDUK', '', $formatNum($tot_l), $formatNum($tot_p), $formatNum($tot_all), true);
 
 // II. Mutasi
-$addLeft('II', 'JUMLAH DATA YANG:', '', '', '', '', true);
+$tot_mutasi_l = ($d->lahir_l ?? 0) + ($d->mati_l ?? 0) + ($d->datang_l ?? 0) + ($d->pindah_l ?? 0);
+$tot_mutasi_p = ($d->lahir_p ?? 0) + ($d->mati_p ?? 0) + ($d->datang_p ?? 0) + ($d->pindah_p ?? 0);
+$addLeft('II', 'JUMLAH DATA YANG:', '', $formatNum($tot_mutasi_l), $formatNum($tot_mutasi_p), $formatNum($tot_mutasi_l + $tot_mutasi_p), true);
 $addLeft('', 'a. Lahir', ':', $formatNum($d->lahir_l ?? 0), $formatNum($d->lahir_p ?? 0), $formatNum(($d->lahir_l ?? 0) + ($d->lahir_p ?? 0)));
 $addLeft('', 'b. Meninggal', ':', $formatNum($d->mati_l ?? 0), $formatNum($d->mati_p ?? 0), $formatNum(($d->mati_l ?? 0) + ($d->mati_p ?? 0)));
 $addLeft('', 'c. Datang', ':', $formatNum($d->datang_l ?? 0), $formatNum($d->datang_p ?? 0), $formatNum(($d->datang_l ?? 0) + ($d->datang_p ?? 0)));
@@ -133,14 +135,16 @@ foreach($pkjs as $pk) {
 }
 
 // IX. Bangunan
-$addLeft('IX', 'KONDISI BANGUNAN', '', '', '', '', true);
+$tot_bgn = ($d->bgn_darurat ?? 0) + ($d->bgn_semi ?? 0) + ($d->bgn_permanen ?? 0) + ($d->bgn_lainnya ?? 0);
+$addLeft('IX', 'KONDISI BANGUNAN', '', $formatNum($tot_bgn), 'Bangunan', '', true);
 $addLeft('', 'a. Darurat', ':', $formatNum($d->bgn_darurat ?? 0), 'Bangunan', '');
 $addLeft('', 'b. Semi Permanen', ':', $formatNum($d->bgn_semi ?? 0), 'Bangunan', '');
 $addLeft('', 'c. Permanen', ':', $formatNum($d->bgn_permanen ?? 0), 'Bangunan', '');
 $addLeft('', 'd. Lainnya', ':', $formatNum($d->bgn_lainnya ?? 0), 'Bangunan', '');
 
 // X. Kendaraan
-$addLeft('X', 'KENDARAAN BERMOTOR', '', '', '', '', true);
+$tot_kdr = ($d->kdr_motor ?? 0) + ($d->kdr_mobil ?? 0) + ($d->kdr_bus ?? 0) + ($d->kdr_mikrolet ?? 0) + ($d->kdr_truk ?? 0) + ($d->kdr_pickup ?? 0);
+$addLeft('X', 'KENDARAAN BERMOTOR', '', $formatNum($tot_kdr), 'Unit', '', true);
 $addLeft('', 'a. Sepeda Motor', ':', $formatNum($d->kdr_motor ?? 0), 'Unit', '');
 $addLeft('', 'b. Mobil Pribadi', ':', $formatNum($d->kdr_mobil ?? 0), 'Unit', '');
 $addLeft('', 'c. Bus', ':', $formatNum($d->kdr_bus ?? 0), 'Unit', '');
