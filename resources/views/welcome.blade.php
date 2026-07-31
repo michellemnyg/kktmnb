@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen@2.4.0/Control.FullScreen.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="antialiased bg-slate-50 text-slate-800">
@@ -221,12 +223,7 @@
                 <p class="text-slate-600">Temukan lokasi Kantor Kelurahan Manembo-Nembo serta titik penting di sekitar wilayah kami.</p>
             </div>
             
-            <div class="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-                <iframe 
-                    src="https://www.google.com/maps/d/embed?mid=1PXXBLVcEPuz7TJx82P78pTogCRR3y1g" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+            <div id="map" class="w-full h-[500px] rounded-2xl shadow-lg border border-slate-200" style="z-index: 1;"></div>
         </div>
     </section>
 
@@ -340,6 +337,34 @@
                 });
             });
         });
+    </script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.fullscreen@2.4.0/Control.FullScreen.js"></script>
+    <script>
+        const map = L.map('map').setView([1.4458, 125.1825], 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
+
+        fetch('/data/manembo.json')
+        .then(res => res.json())
+        .then(data => {
+            const wilayah = L.geoJSON(data, {
+                style: {
+                    color: '#ef4444',
+                    weight: 3,
+                    fillOpacity: 0.1
+                }
+            }).addTo(map);
+            map.fitBounds(wilayah.getBounds());
+        }).catch(err => console.error("Gagal memuat GeoJSON:", err));
+
+        L.marker([1.4458, 125.1825])
+        .addTo(map)
+        .bindPopup("<b>Kantor Kelurahan Manembo-Nembo</b>");
+        map.addControl(new L.Control.Fullscreen());
     </script>
 </body>
 </html>
