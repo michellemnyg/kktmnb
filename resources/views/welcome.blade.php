@@ -342,7 +342,12 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.fullscreen@2.4.0/Control.FullScreen.js"></script>
     <script>
-        const map = L.map('map').setView([1.4458, 125.1825], 14);
+        const map = L.map('map', {
+            fullscreenControl: true,
+            fullscreenControlOptions: {
+                position: 'topleft'
+            }
+        }).setView([1.4458, 125.1825], 14);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
@@ -364,7 +369,6 @@
         L.marker([1.4458, 125.1825])
         .addTo(map)
         .bindPopup("<b>Kantor Kelurahan Manembo-Nembo</b>");
-        map.addControl(new L.Control.Fullscreen());
     </script>
 </body>
 </html>
