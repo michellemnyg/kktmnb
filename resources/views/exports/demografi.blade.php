@@ -15,7 +15,7 @@ $addLeft = function($a, $b, $c, $d_val, $e_val, $f_val, $isBold = false) use (&$
 };
 
 $formatNum = function($num) {
-    return $num > 0 ? number_format($num, 0, ',', '.') : '-';
+    return (int)$num;
 };
 
 $formatUnit = function($num, $unit) {
@@ -215,13 +215,13 @@ $maxRows = max(count($left), count($right));
     
     <!-- Table Headers -->
     <tr>
-        <td style="border: 1px solid black; text-align: center; font-weight: bold; vertical-align: middle;">NO</td>
-        <td colspan="2" style="border: 1px solid black; text-align: center; font-weight: bold; vertical-align: middle;">URAIAN</td>
-        <td style="border: 1px solid black; text-align: center; font-weight: bold; vertical-align: middle; width: 60px;">L</td>
-        <td style="border: 1px solid black; text-align: center; font-weight: bold; vertical-align: middle; width: 60px;">P</td>
-        <td style="border: 1px solid black; text-align: center; font-weight: bold; vertical-align: middle; width: 70px;">JUMLAH<br>JIWA</td>
+        <td style="text-align: center; font-weight: bold; vertical-align: middle;">NO</td>
+        <td colspan="2" style="text-align: center; font-weight: bold; vertical-align: middle;">URAIAN</td>
+        <td style="text-align: center; font-weight: bold; vertical-align: middle; width: 60px;">L</td>
+        <td style="text-align: center; font-weight: bold; vertical-align: middle; width: 60px;">P</td>
+        <td style="text-align: center; font-weight: bold; vertical-align: middle; width: 70px;">JUMLAH<br>JIWA</td>
         <td></td>
-        <td colspan="4" style="border: 1px solid black; text-align: center; font-weight: bold; vertical-align: middle;">JUMLAH JIWA MENURUT UMUR</td>
+        <td colspan="4" style="text-align: center; font-weight: bold; vertical-align: middle;">JUMLAH JIWA MENURUT UMUR</td>
     </tr>
     
     @for($i = 0; $i < $maxRows; $i++)
@@ -229,25 +229,25 @@ $maxRows = max(count($left), count($right));
             {{-- LEFT SIDE --}}
             @if(isset($left[$i]))
                 @php $lRow = $left[$i]; $bold = $lRow['is_bold'] ? 'font-weight: bold;' : ''; @endphp
-                <td style="border: 1px solid black; text-align: center; {{ $bold }}">{{ $lRow['a'] }}</td>
-                <td style="border: 1px solid black; border-right: none; {{ $bold }}">{{ $lRow['b'] }}</td>
-                <td style="border: 1px solid black; border-left: none; text-align: center; {{ $bold }}">{{ $lRow['c'] }}</td>
-                <td style="border: 1px solid black; text-align: right; {{ $bold }}">{{ $lRow['d'] }}</td>
+                <td style="text-align: center; {{ $bold }}">{{ $lRow['a'] }}</td>
+                <td style="{{ $bold }}">{{ $lRow['b'] }}</td>
+                <td style="text-align: center; {{ $bold }}">{{ $lRow['c'] }}</td>
+                <td style="text-align: right; {{ $bold }}">{{ $lRow['d'] }}</td>
                 
                 @if(in_array($lRow['e'], ['Keluarga', 'Bangunan', 'Unit']))
-                    <td colspan="2" style="border: 1px solid black; text-align: left; padding-left: 5px; {{ $bold }}">{{ $lRow['e'] }}</td>
+                    <td colspan="2" style="text-align: left; padding-left: 5px; {{ $bold }}">{{ $lRow['e'] }}</td>
                 @else
-                    <td style="border: 1px solid black; text-align: right; {{ $bold }}">{{ $lRow['e'] }}</td>
-                    <td style="border: 1px solid black; text-align: right; {{ $bold }}">{{ $lRow['f'] }}</td>
+                    <td style="text-align: right; {{ $bold }}">{{ $lRow['e'] }}</td>
+                    <td style="text-align: right; {{ $bold }}">{{ $lRow['f'] }}</td>
                 @endif
             @else
                 {{-- Empty left cells if left is shorter --}}
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             @endif
 
             {{-- GAP --}}
@@ -255,21 +255,21 @@ $maxRows = max(count($left), count($right));
 
             {{-- RIGHT SIDE --}}
             @if($i == 0)
-                <td style="border: 1px solid black; text-align: center; font-weight: bold; width: 60px;">UMUR</td>
-                <td style="border: 1px solid black; text-align: center; font-weight: bold; width: 80px;">JUMLAH JIWA</td>
-                <td style="border: 1px solid black; text-align: center; font-weight: bold; width: 50px;">L</td>
-                <td style="border: 1px solid black; text-align: center; font-weight: bold; width: 50px;">P</td>
+                <td style="text-align: center; font-weight: bold; width: 60px;">UMUR</td>
+                <td style="text-align: center; font-weight: bold; width: 80px;">JUMLAH JIWA</td>
+                <td style="text-align: center; font-weight: bold; width: 50px;">L</td>
+                <td style="text-align: center; font-weight: bold; width: 50px;">P</td>
             @elseif(isset($right[$i - 1]))
                 @php $rRow = $right[$i - 1]; $bold = $rRow['is_bold'] ? 'font-weight: bold;' : ''; @endphp
-                <td style="border: 1px solid black; text-align: center; {{ $bold }}">{{ $rRow['h'] }}</td>
-                <td style="border: 1px solid black; text-align: right; {{ $bold }}">{{ $rRow['i'] }}</td>
-                <td style="border: 1px solid black; text-align: right; {{ $bold }}">{{ $rRow['j'] }}</td>
-                <td style="border: 1px solid black; text-align: right; {{ $bold }}">{{ $rRow['k'] }}</td>
+                <td style="text-align: center; {{ $bold }}">{{ $rRow['h'] }}</td>
+                <td style="text-align: right; {{ $bold }}">{{ $rRow['i'] }}</td>
+                <td style="text-align: right; {{ $bold }}">{{ $rRow['j'] }}</td>
+                <td style="text-align: right; {{ $bold }}">{{ $rRow['k'] }}</td>
             @else
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
-                <td style="border-left: 1px solid transparent; border-right: 1px solid transparent;"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             @endif
         </tr>
     @endfor
