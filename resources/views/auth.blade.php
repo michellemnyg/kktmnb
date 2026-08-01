@@ -9,10 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-slate-900 text-slate-800 font-sans antialiased min-h-screen flex items-center justify-center p-4" 
-      style="background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('{{ asset('images/header.jpeg') }}'); background-size: cover; background-position: center;">
+<body class="bg-slate-900 text-slate-800 font-sans antialiased min-h-screen flex items-center justify-center p-4 relative overflow-hidden z-0">
+    
+    <!-- Background Decor -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-primary-600/20 blur-[120px] mix-blend-screen animate-pulse" style="animation-duration: 8s;"></div>
+        <div class="absolute top-[40%] -right-[10%] w-[50%] h-[60%] rounded-full bg-primary-800/30 blur-[100px] mix-blend-screen animate-pulse" style="animation-duration: 12s; animation-delay: 2s;"></div>
+        <div class="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-slate-500/20 blur-[80px] mix-blend-screen animate-pulse" style="animation-duration: 10s; animation-delay: 1s;"></div>
+    </div>
 
-    <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden p-8 md:p-10 animate-fade-in-up">
+    <div class="w-full max-w-md bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden p-8 md:p-10 animate-fade-in-up">
         
         <div class="text-center mb-8">
             <img src="{{ asset('images/logobitung.png') }}" alt="Logo Bitung" class="h-16 w-auto mx-auto mb-4 drop-shadow">
